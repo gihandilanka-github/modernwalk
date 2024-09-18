@@ -13,8 +13,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
+      apiBaseUrl: `${process.env.API_URL}/` || 'http://localhost:8000/',
       APP_URL: process.env.APP_URL,
       APP_NAME: process.env.APP_NAME,
     },
   },
+  modules: ['@pinia/nuxt'],
 });

@@ -35,6 +35,8 @@
   @extend .home-page-title;
   @extend .text-h6;
 }
-.full-width {
-  width: 100%;
+.card-title {
+  @extend .mb-2;
+  color: #002d5b;
+  @extend .text-h6;
 }

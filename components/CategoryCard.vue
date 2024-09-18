@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot:default="{ isHovering, props }">
     <router-link
-      :to="{ path: `/${category.title.toLowerCase()}` }"
+      :to="{ path: formatTextToSlug(category) }"
       class="no-underline"
     >
       <v-card
@@ -11,17 +11,18 @@
         height="200"
         :elevation="isHovering ? 8 : 2"
       >
-        <v-card-text class="d-flex align-center justify-center">
-          <h1>{{ category.title }}</h1>
+        <v-card-text class="d-flex align-center justify-center text-capitalize">
+          <h1>{{ category }}</h1>
         </v-card-text>
       </v-card>
     </router-link>
   </v-hover>
 </template>
 <script setup>
+  import { formatTextToSlug } from '~/utils/commonHelper';
   const props = defineProps({
     category: {
-      type: Object,
+      type: String,
       required: true,
     },
   });

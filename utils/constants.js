@@ -10,3 +10,5 @@ export const SITE_META = {
     ogImage: '',
   },
 };
+
+export const CATEGORIES = ["men's clothing", "women's clothing"];
