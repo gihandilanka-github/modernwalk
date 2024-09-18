@@ -1,4 +1,64 @@
 <template>
-  <div></div>
+  <v-container class="text-center px-0 pt-10">
+    <v-row>
+      <PageTitle
+        titleAlign="left"
+        titleSize="h5"
+        :titleText="category"
+        :textCapitalize="true"
+      />
+    </v-row>
+    <v-row class="justify-start">
+      <v-col
+        v-for="product in products"
+        :key="product.id"
+        class="pl-0 pr-5"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+      >
+        <ProductCard :product="product" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-<script setup></script>
+<script setup>
+  import { SITE_META, CATEGORIES } from '~/utils/constants';
+  import { convertToPossessive } from '~/utils/commonHelper';
+
+  const route = useRoute();
+  const category = convertToPossessive(route.params.category);
+  const { APP_URL } = useRuntimeConfig().public;
+
+  const setHead = inject('setHead');
+  setHead({
+    title: capitalize(category),
+    description: SITE_META.HOME.description,
+    keywords: SITE_META.HOME.keywords,
+    ogTitle: SITE_META.HOME.ogTitle,
+    ogDescription: SITE_META.HOME.description,
+    ogUrl: APP_URL,
+    ogImage: APP_URL + SITE_META.HOME.ogImage,
+  });
+
+  const productStore = useProductStore();
+
+  const products = computed(() => {
+    return productStore.products.filter((product) =>
+      CATEGORIES.includes(product.category)
+    );
+  });
+
+  const fetchProductsPerCategory = () => {
+    return productStore.fetchProductsPerCategory(category, 'desc');
+  };
+
+  onBeforeMount(() => {
+    fetchProductsPerCategory();
+  });
+  onUnmounted(() => {
+    productStore.setState('products', []);
+    productStore.setState('categories', []);
+  });
+</script>

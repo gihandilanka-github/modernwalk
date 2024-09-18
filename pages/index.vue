@@ -38,13 +38,12 @@
 </template>
 
 <script setup>
-  import ProductCard from '~/components/ProductCard.vue';
   import { SITE_META, CATEGORIES } from '~/utils/constants';
 
   const { APP_URL } = useRuntimeConfig().public;
   const setHead = inject('setHead');
   setHead({
-    title: 'Modern Walk - Your Fashion Store',
+    title: 'Home',
     description: SITE_META.HOME.description,
     keywords: SITE_META.HOME.keywords,
     ogTitle: SITE_META.HOME.ogTitle,
@@ -68,15 +67,20 @@
   });
 
   const fetchProducts = () => {
-    return productStore.fetchProducts();
+    return productStore.fetchProducts('desc');
   };
 
   const fetchCategories = () => {
     return productStore.fetchCategories();
   };
 
-  onMounted(() => {
+  onBeforeMount(() => {
     fetchProducts();
     fetchCategories();
+  });
+
+  onUnmounted(() => {
+    productStore.setState('products', []);
+    productStore.setState('categories', []);
   });
 </script>

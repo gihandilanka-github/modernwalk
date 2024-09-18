@@ -13,7 +13,7 @@
     </v-card-subtitle>
     <v-card-text class="pt-0">
       <span :title="product.description">
-        {{ truncateTitle(product.description, 100) || product.description }}
+        {{ truncateTitle(product.description, 90) || product.description }}
       </span>
     </v-card-text>
   </v-card>

@@ -5,7 +5,9 @@
       'title-container-left': titleAlign === 'left',
     }"
   >
-    <div :class="size">{{ titleText }}</div>
+    <div :class="{ [size]: true, 'text-capitalize': textCapitalize }">
+      {{ titleText }}
+    </div>
     <v-divider
       v-if="titleDivider"
       class="title-divider"
@@ -31,6 +33,10 @@
     divider: {
       type: Boolean,
       default: true,
+    },
+    textCapitalize: {
+      type: Boolean,
+      default: false,
     },
   });
 

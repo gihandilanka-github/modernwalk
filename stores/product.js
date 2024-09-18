@@ -15,11 +15,11 @@ export const useProductStore = defineStore('product', {
     setCategories(categories) {
       this.categories = categories;
     },
-    async fetchProducts(limit, sort) {
+    async fetchProducts(sort = 'asc', limit) {
       this.setState('productsLoading', true);
       try {
         const data = await $fetch('/api/products', {
-          params: {
+          query: {
             limit,
             sort,
           },
@@ -51,6 +51,25 @@ export const useProductStore = defineStore('product', {
         this.setCategories([]);
       } finally {
         this.setState('categoriesLoading', false);
+      }
+    },
+    async fetchProductsPerCategory(category, sort = 'asc', limit) {
+      this.setState('productsLoading', true);
+      try {
+        const data = await $fetch(`/api/products/category/${category}`, {
+          query: {
+            limit,
+            sort,
+          },
+        });
+
+        if (data) {
+          this.setProducts(data);
+        }
+      } catch (error) {
+        this.setProducts([]);
+      } finally {
+        this.setState('productsLoading', false);
       }
     },
   },
