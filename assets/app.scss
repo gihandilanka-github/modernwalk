@@ -1,0 +1,40 @@
+@use 'vuetify/styles';
+
+.title-divider
+{
+  width: 100px;
+  @extend .pb-15;
+  height: 2px;
+  @extend .text-indigo;
+  @extend .border-opacity-100;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title-container-left {
+  @extend .title-container;
+  align-items: flex-start;
+}
+
+.home-page-title {
+  @extend .mb-2;
+  color: #002d5b;
+}
+.home-page-title-h4 {
+  @extend .home-page-title;
+  @extend .text-h4;
+}
+.home-page-title-h5 {
+  @extend .home-page-title;
+  @extend .text-h5;
+}
+.home-page-title-h6 {
+  @extend .home-page-title;
+  @extend .text-h6;
+}
+.full-width {
+  width: 100%;
+}
