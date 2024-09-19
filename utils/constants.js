@@ -12,3 +12,6 @@ export const SITE_META = {
 };
 
 export const CATEGORIES = ["men's clothing", "women's clothing"];
+
+export const MENS_COLOR = 'teal';
+export const WOMENS_COLOR = 'pink';
