@@ -1,13 +1,13 @@
 <template>
-  <v-container class="text-center px-0 pt-10">
-    <v-row>
+  <v-container class="text-center pt-10">
+    <v-row class="px-3">
       <PageTitle titleText="Flash Sale" titleAlign="left" titleSize="h5" />
     </v-row>
     <v-row class="justify-start">
       <v-col
         v-for="product in products"
         :key="product.id"
-        class="pl-0 pr-5"
+        class=""
         cols="12"
         sm="6"
         md="4"
@@ -17,15 +17,15 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container class="text-center px-0 pt-10">
-    <v-row>
+  <v-container class="text-center pt-10 mt-5">
+    <v-row class="px-3">
       <PageTitle titleText="Categories" titleAlign="left" titleSize="h5" />
     </v-row>
     <v-row class="justify-start">
       <v-col
         v-for="category in categories"
         :key="category"
-        class="pl-0 pr-5"
+        class=""
         cols="12"
         sm="12"
         md="6"
