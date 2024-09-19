@@ -22,7 +22,7 @@ To set up the project locally:
    git clone https://github.com/gihandilanka-github/modernwalk.git
    ```
 2. Create a `.env` file in root folder
-3. Add these lines:
+3. Add these lines in `.env` file:
 
    ```bash
    APP_NAME="Modern Walk"
