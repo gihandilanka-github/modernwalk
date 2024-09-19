@@ -50,6 +50,17 @@
     );
   });
 
+  const isProductsEmpty = computed(() => {
+    return !CATEGORIES.includes(category);
+  });
+
+  if (isProductsEmpty.value) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Page Not Found',
+    });
+  }
+
   const fetchProductsPerCategory = () => {
     return productStore.fetchProductsPerCategory(category, 'desc');
   };
