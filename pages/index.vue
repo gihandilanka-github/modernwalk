@@ -3,7 +3,8 @@
     <v-row class="px-3">
       <PageTitle titleText="Flash Sale" titleAlign="left" titleSize="h5" />
     </v-row>
-    <v-row class="justify-start">
+    <v-row v-if="productStore.productsLoading"> <ProductCardLoader /> </v-row>
+    <v-row v-else class="justify-start">
       <v-col
         v-for="product in products"
         :key="product.id"
@@ -21,7 +22,8 @@
     <v-row class="px-3">
       <PageTitle titleText="Categories" titleAlign="left" titleSize="h5" />
     </v-row>
-    <v-row class="justify-start">
+    <v-row v-if="productStore.categoriesLoading"> <CategoryCardLoader /></v-row>
+    <v-row v-else class="justify-start">
       <v-col
         v-for="category in categories"
         :key="category"

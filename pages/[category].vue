@@ -8,7 +8,8 @@
         :textCapitalize="true"
       />
     </v-row>
-    <v-row class="justify-start">
+    <v-row v-if="productStore.productsLoading"> <ProductCardLoader /> </v-row>
+    <v-row v-else class="justify-start">
       <v-col
         v-for="product in products"
         :key="product.id"
