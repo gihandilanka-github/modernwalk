@@ -1,6 +1,6 @@
 <template>
-  <v-container class="text-center px-0 pt-10">
-    <v-row>
+  <v-container class="text-center pt-10">
+    <v-row class="px-3">
       <PageTitle
         titleAlign="left"
         titleSize="h5"
@@ -13,7 +13,7 @@
       <v-col
         v-for="product in products"
         :key="product.id"
-        class="pl-0 pr-5"
+        class="pr-5"
         cols="12"
         sm="6"
         md="4"
