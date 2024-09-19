@@ -21,6 +21,17 @@ To set up the project locally:
    ```bash
    git clone https://github.com/gihandilanka-github/modernwalk.git
    ```
+2. Create a `.env` file in root folder
+3. Add these lines:
+
+   ```bash
+   APP_NAME="Modern Walk"
+   APP_URL="https://modernwalk.gihandilanka.com"
+   API_URL="https://fakestoreapi.com"
+   ```
+
+4. Run `npm install` to install dependencies
+5. Run `npm run dev` to up the project and you can access it in the browser as `http://localhost:3000`
 
 ## Demo
 
