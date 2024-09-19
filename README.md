@@ -24,4 +24,4 @@ To set up the project locally:
 
 ## Demo
 
-[Live Demo](https://modernwalk.gihandilanka.com/)
+[Live Demo](https://modernwalk.gihandilanka.com/){:target="\_blank"}
